@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header/>
+    <ListOfrecipes/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from "./Header.vue"
+import ListOfrecipes from "./ListOfrecipes.vue"
 export default {
   name: 'App',
   components: {
-    HelloWorld
+   Header,
+   ListOfrecipes
   }
 }
 </script>
@@ -23,6 +24,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
+  transform: translateX(-20%) translateY(-10%);
 }
 </style>
