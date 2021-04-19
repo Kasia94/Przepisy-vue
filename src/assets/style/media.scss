@@ -1,0 +1,38 @@
+$bp:(sm: 500px,
+    md: 700px,
+    lg: 900px);
+
+@function breakpoint-next($name) {
+    $keys: map-keys($bp);
+    $next: index($keys, $name);
+    @return if($next != null and $next < length($keys), nth($keys, $next + 1), null);
+}
+
+@mixin breakpoint($name) {
+    $min: map-get($bp, $name);
+    $max: map-get($bp, breakpoint-next($name));
+
+    @if $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @media (min-width: $min)  {
+            @content;
+        }
+    }
+}
+@mixin breakpointUp($name) {
+    $min: map-get($bp, $name);
+    $max: map-get($bp, breakpoint-next($name));
+
+    @if $max != null {
+        @media (min-width: $min)  {
+            @content;
+        }
+    } @else if $max == null {
+        @media (min-width: $min)  {
+            @content;
+        }
+    }
+}
