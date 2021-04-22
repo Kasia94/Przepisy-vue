@@ -34,6 +34,7 @@ export default {
     text-align: center;
     padding-right: 15%;
   padding-top: 5px;
+  cursor: pointer;
 }
 @include breakpoint('md') {
   .List {

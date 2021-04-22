@@ -5,35 +5,23 @@
   </div>
 </template>
 <style lang="scss">
-@import '@/assets/style/media.scss';
+@import "@/assets/style/media.scss";
+@import "@/assets/style/colors.scss";
 
 .Header {
-  background: radial-gradient(
-    ellipse,
-    rgba(11, 32, 60, 1) 45%,
-    rgba(237, 235, 235, 0) 60%
-  );
-
+  background: $darkGradient;
   width: auto;
   height: 200px;
   padding: 20px;
   margin: auto;
-
 }
 
-@include breakpoint('sm') {
-  .Header {
-    // background: red;
-    color: yellow;
-  }
-}
-
-@include breakpointUp('md') {
+@include breakpointUp("md") {
   .Header {
     width: 670px;
   }
 }
-@include breakpoint('lg') {
+@include breakpoint("lg") {
   .Header {
     margin-left: 20%;
   }
@@ -46,9 +34,9 @@
 }
 .Header__image {
   width: 140px;
-  height: 150px ;
+  height: 150px;
   position: absolute;
-  top: 31%;
+  top: 28%;
   left: 60%;
 }
 </style>
