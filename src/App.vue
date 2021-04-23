@@ -11,7 +11,7 @@
       :recipe="recipes.find((recipe) => recipe.id === activeRecipeId)"
     />
 
-    <button v-if="activeRecipeId" class="Btn" @click="setActiveRecipe()">Menu</button>
+    <button class="button" v-if="activeRecipeId" @click="setActiveRecipe()">Menu</button>
   </div>
 </template>
 
@@ -43,10 +43,10 @@ export default {
             { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
           ],
           preparationSteps: [
-            'Nagrzać piekarnik do 170℃',
-            'Herbatniki pokruszyć na blachę',
-            'Masło rozpuścić i wylać na pokruszone herbatniki',
-            'Piec 15min w 170℃',
+            { step: 'Nagrzać piekarnik do 170℃', isReady: false },
+            { step: 'Herbatniki pokruszyć na blachę', isReady: false },
+            { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
+            { step: 'piec 15min w 170℃', isReady: false },
           ],
         },
         {
@@ -61,10 +61,10 @@ export default {
             { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
           ],
           preparationSteps: [
-            'Nagrzać piekarnik do 170℃',
-            'Herbatniki pokruszyć na blachę',
-            'Masło rozpuścić i wylać na pokruszone herbatniki',
-            'piec 15min w 170℃',
+            { step: 'Nagrzać piekarnik do 170℃', isReady: false },
+            { step: 'Herbatniki pokruszyć na blachę', isReady: false },
+            { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
+            { step: 'piec 15min w 170℃', isReady: false },
           ],
         },
         {
@@ -79,10 +79,10 @@ export default {
             { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
           ],
           preparationSteps: [
-            'Nagrzać piekarnik do 170℃',
-            'Herbatniki pokruszyć na blachę',
-            'Masło rozpuścić i wylać na pokruszone herbatniki',
-            'piec 15min w 170℃',
+            { step: 'Nagrzać piekarnik do 170℃', isReady: false },
+            { step: 'Herbatniki pokruszyć na blachę', isReady: false },
+            { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
+            { step: 'piec 15min w 170℃', isReady: false },
           ],
         },
         {
@@ -97,10 +97,10 @@ export default {
             { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
           ],
           preparationSteps: [
-            'Nagrzać piekarnik do 170℃',
-            'Herbatniki pokruszyć na blachę',
-            'Masło rozpuścić i wylać na pokruszone herbatniki',
-            'piec 15min w 170℃',
+            { step: 'Nagrzać piekarnik do 170℃', isReady: false },
+            { step: 'Herbatniki pokruszyć na blachę', isReady: false },
+            { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
+            { step: 'piec 15min w 170℃', isReady: false },
           ],
         },
       ],
@@ -122,11 +122,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 20px;
-}
-.Btn {
-  background: rgba(11, 32, 60, 1);
-  color: white;
-  border-radius: 10%;
-  margin: 5px;
 }
 </style>

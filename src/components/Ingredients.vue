@@ -1,10 +1,16 @@
 <template>
-  <div class="Ingredients" >
-    <div class="Ingredient" v-for="(item, index) in recipe.ingredients" :key="index">
-      <input type="checkbox" >{{ item.name }} {{item.quantity}}
-      <!-- <p class="Ingredient__quantity"></p> -->
-    </div>
-  </div>
+  <ul class="Ingredients">
+    <li
+      class="Ingredient"
+      v-for="(item, index) in recipe.ingredients"
+      :key="index"
+    >
+      <label>
+        <input type="checkbox" v-model="item.isReady" />{{ item.name }}
+        {{ item.quantity }}
+      </label>
+    </li>
+  </ul>
 </template>
 <script>
 export default {
@@ -16,17 +22,14 @@ export default {
 };
 </script>
 <style lang="scss">
-.Ingredients{
-    display: flex;
-    flex-direction: column;
-    order: 2;
-
+.Ingredients {
+  display: flex;
+  flex-direction: column;
+  order: 2;
 }
-.Ingredient{
-   display: flex;
-    flex-direction: row;
-    padding: 5%;
-    margin-left:10%
+.Ingredient {
+  list-style: none;
+  padding-right: 10%;
+  margin: 3%;
 }
-
 </style>

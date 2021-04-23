@@ -5,10 +5,10 @@
     </div>
     <div class="Recipe__container">
       <button
-        class="Recipe__btn Recipe__btn--ingredients"
+        class="button button--ingredients"
         @click="showIngredients = !showIngredients"
       >
-        Pokaż składniki
+        {{!showIngredients ? 'Pokaż składniki' : 'Ukryj'}}
       </button>
       <Ingredients
         v-if="showIngredients"
@@ -21,10 +21,10 @@
         :alt="`${recipe.title}`"
       />
       <button
-        class="Recipe__btn Recipe__btn--preparation"
+        class="button button--preparation"
         @click="showPreparation = !showPreparation"
       >
-        Pokaż wykonanie
+        {{!showPreparation? 'Pokaż Wykonanie' : 'Ukryj'}}
       </button>
       <Preparation
         v-if="showPreparation"
@@ -32,7 +32,7 @@
         :recipe="recipe"
       />
     </div>
-    <Timer />
+    <!-- <Timer /> -->
   </div>
 </template>
 <script>
@@ -55,6 +55,7 @@ export default {
       showPreparation: false,
     };
   },
+
 };
 </script>
 <style lang="scss">
@@ -78,16 +79,11 @@ export default {
   );
   padding: 5px;
 }
-.Recipe__btn {
-  background: rgba(11, 32, 60, 1);
-  color: white;
-  border-radius: 10%;
-  margin: 5px;
-}
-.Recipe__btn--ingredients {
+
+.button--ingredients {
   order: 2;
 }
-.Recipe__btn--preparation {
+.button--preparation {
   order: 4;
 }
 .Recipe__image {
