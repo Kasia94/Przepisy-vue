@@ -46,7 +46,8 @@ export default {
             { step: 'Nagrzać piekarnik do 170℃', isReady: false },
             { step: 'Herbatniki pokruszyć na blachę', isReady: false },
             { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
-            { step: 'piec 15min w 170℃', isReady: false },
+            { step: 'piec 15min w 170℃', isReady: false, time: 15 },
+            { step: 'piec 15min w 170℃', isReady: false, time: 1 },
           ],
         },
         {

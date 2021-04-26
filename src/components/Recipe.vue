@@ -31,18 +31,26 @@
         class="Recipe__preparation"
         :recipe="recipe"
       />
+      <button
+        class="button button--timer"
+        @click="showTimer = !showTimer"
+      >
+        {{!showTimer? 'Pokaż Licznik' : 'Ukryj'}}
+      </button>
+        <Timer class="Recipe__timer" v-if="showTimer" :preparation="recipe.preparationSteps"/>
     </div>
-    <!-- <Timer /> -->
   </div>
 </template>
 <script>
 import Ingredients from './Ingredients.vue';
 import Preparation from './Preparation.vue';
+import Timer from './Timer.vue';
 
 export default {
   components: {
     Ingredients,
     Preparation,
+    Timer,
   },
   props: {
     recipe: {
@@ -53,6 +61,7 @@ export default {
     return {
       showIngredients: false,
       showPreparation: false,
+      showTimer: false,
     };
   },
 
@@ -86,6 +95,9 @@ export default {
 .button--preparation {
   order: 4;
 }
+.button--timer {
+  order: 6;
+}
 .Recipe__image {
   width: 90%;
   margin: auto;
@@ -98,5 +110,8 @@ export default {
 .Recipe__preparation {
   flex-basis: 35%;
   order: 5;
+}
+.Recipe__timer{
+order: 7;
 }
 </style>
