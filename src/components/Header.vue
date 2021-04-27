@@ -16,17 +16,6 @@
   margin: auto;
 }
 
-@include breakpointUp("md") {
-  .Header {
-    width: 670px;
-  }
-}
-@include breakpoint("lg") {
-  .Header {
-    margin-left: 20%;
-  }
-}
-
 .Header__slogan {
   color: white;
   margin: 65px auto auto auto;
@@ -39,4 +28,21 @@
   top: 28%;
   left: 60%;
 }
+@include breakpointUp("sm") {
+
+}
+@include breakpointUp("md") {
+  .Header {
+    width: 670px;
+  }
+  .Header__image {
+ top:25%
+  }
+}
+@include breakpoint("lg") {
+  .Header {
+    margin-left: 20%;
+  }
+}
+
 </style>

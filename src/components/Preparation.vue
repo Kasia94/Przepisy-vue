@@ -8,7 +8,7 @@
         :class="{ currencyItem: index === nextAddStyle }"
       >
         <label>
-          <input  type="checkbox" v-model="item.isReady" />
+          <input class="input" type="checkbox" v-model="item.isReady" />
           {{ item.step }}
         </label>
       </li>
@@ -32,6 +32,7 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "@/assets/style/media.scss";
 .Preparations {
   text-align: justify;
 }
@@ -43,5 +44,15 @@ export default {
 .currencyItem {
   font-size: large;
   font-weight: bold;
+}
+@include breakpointUp("sm") {
+  .Preparations {
+    padding-bottom: 10%;
+    margin: auto;
+    width: auto;
+    min-width: 200px;
+     margin-right: 20px;
+     border-left: solid  black 1px;
+  }
 }
 </style>

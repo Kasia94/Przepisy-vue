@@ -6,7 +6,7 @@
       :key="index"
     >
       <label>
-        <input type="checkbox" v-model="item.isReady" />{{ item.name }}
+        <input class="input" type="checkbox" v-model="item.isReady" />{{ item.name }}
         {{ item.quantity }}
       </label>
     </li>
@@ -22,6 +22,7 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "@/assets/style/media.scss";
 .Ingredients {
   display: flex;
   flex-direction: column;
@@ -31,5 +32,13 @@ export default {
   list-style: none;
   padding-right: 10%;
   margin: 3%;
+}
+@include breakpointUp("sm") {
+  .Ingredient {
+    padding-bottom: 10%;
+    margin: auto;
+    min-width: 200px;
+    margin-right: 10px;
+  }
 }
 </style>

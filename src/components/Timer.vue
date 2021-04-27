@@ -3,7 +3,7 @@
     <h3 class="Timer__title">Czas pieczenia/gotowania</h3>
     <div v-if="!time">
       <form>
-        <label v-for="(item, index) in preparation" :key="index">
+        <label class="Timer__Form__label" v-for="(item, index) in preparation" :key="index">
           <input
             v-if="item.time"
             type="radio"
@@ -12,8 +12,8 @@
             v-model="minutes"
           />
           {{ item.time }} </label
-        >min
-        <button type="button" @click="setTime" :disabled="!minutes">
+        ><a class="Timer__Form__text">minut</a>
+        <button class="button button--setting" type="button" @click="setTime" :disabled="!minutes">
           Ustaw czas
         </button>
       </form>
@@ -21,9 +21,9 @@
     <div v-else>
       <div>{{ prettyTime | prettify }}</div>
       <div>
-        <button v-if="!isRunning" @click="start">Start</button>
-        <button v-if="isRunning" @click="stop">Stop</button>
-        <button @click="reset">Reset</button>
+        <button class="button" v-if="!isRunning" @click="start">Start</button>
+        <button class="button" v-if="isRunning" @click="stop">Stop</button>
+        <button class="button" @click="reset">Reset</button>
       </div>
     </div>
   </div>
@@ -98,3 +98,14 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.button--setting{
+  margin: 20px  !important;
+}
+.Timer__Form__label{
+margin-right: 10px;
+}
+.Timer__Form__text{
+  margin-left: 20px;
+}
+</style>
