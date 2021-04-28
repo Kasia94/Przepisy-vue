@@ -11,7 +11,9 @@
       :recipe="recipes.find((recipe) => recipe.id === activeRecipeId)"
     />
 
-    <button class="button" v-if="activeRecipeId" @click="setActiveRecipe()">Menu</button>
+    <button class="button" v-if="activeRecipeId" @click="setActiveRecipe()">
+      Menu
+    </button>
   </div>
 </template>
 
@@ -34,74 +36,214 @@ export default {
         {
           id: 1,
           title: 'Sernik Bomba Kalorii',
-          imageSource: 'sernik',
+          imageSource: 's-ernik',
           ingredients: [
             { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
+            { name: 'masło', quantity: '200g', isReady: false },
+            { name: 'twaróg sernikowy', quantity: '1kg', isReady: false },
+            { name: 'mascarpone', quantity: '250g', isReady: false },
+            {
+              name: 'mleko zagęszcone słodzone',
+              quantity: '530g',
+              isReady: false,
+            },
+            { name: 'jaja', quantity: '2szt', isReady: false },
+            { name: 'cukier waniliowy', quantity: '1', isReady: false },
+            {
+              name: 'mąka ziemniaczana/budyń waniliowy',
+              quantity: '2łyżeczki',
+              isReady: false,
+            },
+            { name: 'mietanka 30%/36%', quantity: '500ml', isReady: false },
+            { name: 'mietan-fix', quantity: '9g', isReady: false },
           ],
           preparationSteps: [
             { step: 'Nagrzać piekarnik do 170℃', isReady: false },
             { step: 'Herbatniki pokruszyć na blachę', isReady: false },
-            { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
-            { step: 'piec 15min w 170℃', isReady: false, time: 15 },
-            { step: 'piec 15min w 170℃', isReady: false, time: 1 },
+            {
+              step: 'Masło rozpuścić i wylać na pokruszone herbatniki',
+              isReady: false,
+            },
+            { step: 'Piec 15min w 170℃', isReady: false, time: 15 },
+            {
+              step:
+                'Zmieksować masę: twaróg sernikowy,mascarpone, mleko, jaja, cukier waniliowy,mąka/budyń',
+              isReady: false,
+            },
+            {
+              step: 'Masę wylać na podpieczone herbatniki',
+              isReady: false,
+            },
+            { step: 'Piec 15min w 170℃', isReady: false },
+            { step: 'Piec 45min w 120℃', isReady: false, time: 45 },
+            {
+              step:
+                'Zmiksować śmietankę z fixem (można dodać cukru pudru i soku z cytryny do smaku)',
+              isReady: false,
+            },
+            { step: 'Na wystudzony sernik wyłożyć śmietankę', isReady: false },
           ],
         },
         {
           id: 2,
           title: 'Strogonow',
-          imageSource: '',
+          imageSource: 'strogonow',
           ingredients: [
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
+            { name: 'Polędwica wołowa', quantity: '500g', isReady: false },
+            { name: 'mąka pszenna', quantity: '2 łyżki', isReady: false },
+            { name: 'Bulion wołowy', quantity: '500ml', isReady: false },
+            { name: 'Olej roślinny', quantity: '4łyżki', isReady: false },
+            { name: 'Cebule', quantity: '2 szt', isReady: false },
+            { name: 'Pieczarki', quantity: '300g', isReady: false },
+            { name: 'Czerwona papryka', quantity: '1/2szt', isReady: false },
+            {
+              name: 'Przecier pomidorowy',
+              quantity: '1/2 szklanki',
+              isReady: false,
+            },
+            { name: 'Koncentrat', quantity: '1 łyżka', isReady: false },
+            { name: 'Słodka papryka', quantity: '2 łyżeczki', isReady: false },
+            { name: 'Ostra papryka', quantity: '1/2 łyżeczki', isReady: false },
+            { name: 'Sól', quantity: 'szczypta', isReady: false },
+            { name: 'Pieprz', quantity: 'szczypta', isReady: false },
           ],
           preparationSteps: [
-            { step: 'Nagrzać piekarnik do 170℃', isReady: false },
-            { step: 'Herbatniki pokruszyć na blachę', isReady: false },
-            { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
-            { step: 'piec 15min w 170℃', isReady: false },
+            {
+              step:
+                'Mięso pokroić na cienkie paski w poprzek włókien. Wymieszać z mąką pszenną. Zagotować bulion w szerokim garnku.',
+              isReady: false,
+            },
+            {
+              step:
+                'Rozgrzać patelnię z 2 łyżkami oleju, zwiększyć ogień i stopniowo wkładać mięso. Szybko obsmażyć, następnie zdjąć z patelni i włożyć do gotującego się bulionu.',
+              isReady: false,
+            },
+            {
+              step:
+                'Doprawić papryką słodką i ostrą i gotować pod przykryciem do miękkości mięsa  ok. 10 minut.',
+              time: 10,
+              isReady: false,
+            },
+            {
+              step:
+                'Cebule obrać i pokroić w piórka, następnie zeszklić na łyżce oleju, dodać do garnka z mięsem, gotować ok. 5 minut.',
+              time: 5,
+              isReady: false,
+            },
+            {
+              step:
+                'Pieczarki pokroić w plasterki, włożyć na patelnię z 1 łyżką oleju, smażyć aż odparują, następnie dodać pokrojoną w paski paprykę i smażyć jeszcze przez 5 minut. Przełożyć do garnka z mięsem. Gotować bez przykrycia przez ok. 5 minut, w międzyczasie doprawić solą i pieprzem.',
+              isReady: false,
+            },
+            {
+              step:
+                'Dodać przecier i koncentrat pomidorowy, zagotować. Gotować bez przykrycia przez kolejne 5 minut.',
+              isReady: false,
+            },
           ],
         },
         {
           id: 3,
           title: 'Stripsy',
-          imageSource: '',
+          imageSource: 'stripsy',
           ingredients: [
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
+            { name: 'Pierś z kurczaka', quantity: '500g', isReady: false },
+            { name: 'Mąka', quantity: '4 łyżki', isReady: false },
+            { name: 'jaja', quantity: '2 szt', isReady: false },
+            { name: 'mleko', quantity: '6 łyżek', isReady: false },
+            { name: 'olej', quantity: '2 łyżki', isReady: false },
+            { name: 'płatki kukurydziane', quantity: '200 g', isReady: false },
+            { name: 'sól', quantity: '1 łyżeczka', isReady: false },
+            {
+              name: 'słodka papryka',
+              quantity: '1/2 łyżeczki',
+              isReady: false,
+            },
+            { name: 'pieprz', quantity: '1/2 łyżeczki', isReady: false },
+            { name: 'ostra papryka', quantity: '1/3 łyżeczki', isReady: false },
+            { name: 'czosnek', quantity: '1/3 łyżeczki', isReady: false },
           ],
           preparationSteps: [
-            { step: 'Nagrzać piekarnik do 170℃', isReady: false },
-            { step: 'Herbatniki pokruszyć na blachę', isReady: false },
-            { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
-            { step: 'piec 15min w 170℃', isReady: false },
+            { step: 'Filety pokrój na podłużne kawałki', isReady: false },
+            {
+              step:
+                'Do naczynia z mięsem dodaj olej i przyprawy(prócz papryki), odstaw na 30 minut',
+              isReady: false,
+              time: 30,
+            },
+            {
+              step: 'Do dużej miski wbij 2 jaja',
+              isReady: false,
+            },
+            { step: 'Wsyp 4 łyżki mąki', isReady: false },
+            { step: 'Wsyp paprykę (ostrą i słodką)', isReady: false },
+            { step: 'Dolej 6 łyżek mleka', isReady: false },
+            { step: 'Całość wymieszaj', isReady: false },
+            { step: 'Płatki umieść w woreczku strunowym', isReady: false },
+            { step: 'Rozgnieć płatki za pomocą wałka', isReady: false },
+            {
+              step:
+                'kawałki kurczaka maczaj w powstałym cieście i obtaczaj w płatkach',
+              isReady: false,
+            },
+            {
+              step: 'Rozgrzej patelnię z ok. 1-1.5cm wysokości patelni oleju',
+              isReady: false,
+            },
+            { step: 'Stripsy smaż na rumiano z każdej strony', isReady: false },
           ],
         },
         {
           id: 4,
           title: 'Faworki',
-          imageSource: '',
+          imageSource: 'faworki',
           ingredients: [
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
-            { name: 'Herbatniki Maślane', quantity: '200g', isReady: false },
+            { name: 'Mąka pszenna', quantity: '300g', isReady: false },
+            { name: 'Żółtka', quantity: '4', isReady: false },
+            { name: 'Spirytus/ocet', quantity: '1 łyżka', isReady: false },
+            { name: 'Cukier', quantity: '1/2 łyżeczki', isReady: false },
+            { name: 'Sól', quantity: '1/2 łyżeczki', isReady: false },
+            { name: 'Śmietana 18%', quantity: '5 łyżek', isReady: false },
+            { name: 'olej/smalec do smażenia', quantity: '', isReady: false },
+            { name: 'cukier puder', quantity: '', isReady: false },
           ],
           preparationSteps: [
-            { step: 'Nagrzać piekarnik do 170℃', isReady: false },
-            { step: 'Herbatniki pokruszyć na blachę', isReady: false },
-            { step: 'Masło rozpuścić i wylać na pokruszone herbatniki', isReady: false },
-            { step: 'piec 15min w 170℃', isReady: false },
+            { step: 'Mąkę wymieszać z cukrem i solą.', isReady: false },
+            { step: 'Dodać żółtka, spirytus i śmietanę. ', isReady: false },
+            {
+              step: 'Zagnieść na jednolitą masę.',
+              isReady: false,
+            },
+            {
+              step:
+                'Ciasto rozwałkować porcjami cieniutko na blacie posypanym lekko mąką.',
+              isReady: false,
+            },
+            {
+              step:
+                'Ciasto rozwałkować porcjami cieniutko na blacie posypanym lekko mąką.Ciasto oczekujące na rozwałkowanie należy przykryć ściereczką, żeby nie obsychało',
+              isReady: false,
+            },
+            {
+              step:
+                'Ciasto pokroić najpierw na paski o szerokości ok. 3- 4 cm, następnie na prostokąty lub równoległoboki o długości ok. 9- 10 cm.',
+              isReady: false,
+            },
+            {
+              step:
+                'Każdy kawałek naciąć w środku i przez nacięcie przeciągnąć jeden koniec.',
+              isReady: false,
+            },
+            {
+              step:
+                'Faworki smażyć na rozgrzanym tłuszczu z obu stron na złoty kolor.',
+              isReady: false,
+            },
+            {
+              step:
+                'Wyjmować łyżką cedzakową i osączyć na ręczniku papierowym z tłuszczu. Gdy ostygną posypać grubo cukrem pudrem..',
+              isReady: false,
+            },
           ],
         },
       ],

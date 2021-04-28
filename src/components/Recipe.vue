@@ -31,7 +31,13 @@
         class="Recipe__preparation"
         :recipe="recipe"
       />
-      <button class="button button--timer" @click="showTimer = !showTimer">
+      <button
+        v-if="
+          recipe.preparationSteps.some((item) => item.hasOwnProperty('time'))
+        "
+        class="button button--timer"
+        @click="showTimer = !showTimer"
+      >
         {{ !showTimer ? "Pokaż Licznik" : "Ukryj" }}
       </button>
       <Timer
@@ -96,6 +102,8 @@ export default {
 }
 .Recipe__image {
   width: 90%;
+  max-width: 370px;
+  max-height: 230px;
   margin: auto;
   order: 1;
 }
@@ -149,8 +157,8 @@ export default {
     height: 36, 7px;
   }
   .Recipe__timer {
-  margin: auto;
-}
+    margin: auto;
+  }
 }
 @include breakpointUp("md") {
   .Recipe__image {
@@ -159,27 +167,26 @@ export default {
     margin-left: 230px;
     padding-right: 200px;
   }
-    button {
+  button {
     width: 20%;
     align-self: flex-end;
-
   }
   .button--ingredients {
     margin-left: 120px !important;
   }
-    .Recipe__container {
-  align-content: flex-end;
+  .Recipe__container {
+    align-content: flex-end;
   }
   @include breakpointUp("lg") {
-  .button--ingredients {
-    margin-left: 20% !important;
-  }
-  .Recipe__image {
-    margin-left: 32%
-  }
-  button {
-    width: 20%;
-  }
+    .button--ingredients {
+      margin-left: 20% !important;
+    }
+    .Recipe__image {
+      margin-left: 32%;
+    }
+    button {
+      width: 20%;
+    }
   }
 }
 </style>

@@ -103,7 +103,7 @@ export default {
   margin: 20px  !important;
 }
 .Timer__Form__label{
-margin-right: 10px;
+margin-right: auto;
 }
 .Timer__Form__text{
   margin-left: 20px;

@@ -25,7 +25,7 @@
   width: 140px;
   height: 150px;
   position: absolute;
-  top: 28%;
+  top: 25%;
   left: 60%;
 }
 @include breakpointUp("sm") {

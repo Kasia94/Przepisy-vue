@@ -27,11 +27,13 @@ export default {
   display: flex;
   flex-direction: column;
   order: 2;
+  text-align: justify;
 }
 .Ingredient {
   list-style: none;
   padding-right: 10%;
   margin: 3%;
+  text-indent: -1.8em;
 }
 @include breakpointUp("sm") {
   .Ingredient {
