@@ -1,24 +1,8 @@
 <template>
   <div class="Timer">
     <h3 class="Timer__title">Czas pieczenia/gotowania</h3>
-    <div v-if="!time">
-      <form>
-        <label class="Timer__Form__label" v-for="(item, index) in preparation" :key="index">
-          <input
-            v-if="item.time"
-            type="radio"
-            name="minutes"
-            :value="item.time"
-            v-model="minutes"
-          />
-          {{ item.time }} </label
-        ><a class="Timer__Form__text">minut</a>
-        <button class="button button--setting" type="button" @click="setTime" :disabled="!minutes">
-          Ustaw czas
-        </button>
-      </form>
-    </div>
-    <div v-else>
+
+    <div>
       <div>{{ prettyTime | prettify }}</div>
       <div>
         <button class="button" v-if="!isRunning" @click="start">Start</button>
@@ -32,7 +16,7 @@
 export default {
   data() {
     return {
-      time: 0,
+      time: this.item.time * 60,
       minutes: null,
       isRunning: false,
       timer: null,
@@ -43,6 +27,10 @@ export default {
     preparation: {
       type: Array,
     },
+    item: {
+      type: Object,
+    },
+
   },
   filters: {
     prettify(value) {
@@ -58,6 +46,9 @@ export default {
       return `${minutes}:${secondes}`;
     },
   },
+  mounted() {
+    this.start();
+  },
   methods: {
     setTime() {
       this.time = this.minutes * 60;
@@ -71,7 +62,7 @@ export default {
           } else {
             clearInterval(this.timer);
             this.sound.play();
-            this.reset();
+            this.$emit('close');
           }
         }, 1000);
       }
@@ -83,7 +74,7 @@ export default {
     },
     reset() {
       this.stop();
-      this.time = 0;
+      this.time = this.item.time * 60;
       this.secondes = 0;
       this.minutes = 0;
     },
@@ -91,7 +82,7 @@ export default {
   computed: {
     prettyTime() {
       const time = this.time / 60;
-      const minutes = parseInt(time, String);
+      const minutes = parseInt(time, 10);
       const secondes = Math.round((time - minutes) * 60);
       return `${minutes}:${secondes}`;
     },
@@ -99,13 +90,13 @@ export default {
 };
 </script>
 <style lang="scss">
-.button--setting{
-  margin: 20px  !important;
+.button--setting {
+  margin: 20px !important;
 }
-.Timer__Form__label{
-margin-right: auto;
+.Timer__Form__label {
+  margin-right: auto;
 }
-.Timer__Form__text{
+.Timer__Form__text {
   margin-left: 20px;
 }
 </style>

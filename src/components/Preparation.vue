@@ -1,5 +1,5 @@
 <template>
-  <div>
+
     <ul class="Preparations">
       <li
         class="Preparations__item"
@@ -7,13 +7,17 @@
         :key="index"
         :class="{ currencyItem: index === nextAddStyle }"
       >
-        <label>
-          <input class="input" type="checkbox" v-model="item.isReady" />
+        <label class="Preparation__label">
+          <input class="input" type="checkbox" v-model="item.isReady" readonly />
           {{ item.step }}
+          <a v-if="item.time" >
+            <button class="button button__timer" @click="$emit('startTimer', item)">
+              Uruchom timer</button>
+          </a>
         </label>
       </li>
     </ul>
-  </div>
+
 </template>
 <script>
 export default {
@@ -34,25 +38,33 @@ export default {
 <style lang="scss">
 @import "@/assets/style/media.scss";
 .Preparations {
+  display: inline;
   text-align: justify;
+  max-width: 400px;
 }
 .Preparations__item {
   list-style: none;
   text-indent: -1.5em;
   margin-bottom: 10px;
+    height: auto;
 }
 .currencyItem {
   font-size: large;
   font-weight: bold;
+}
+.Preparation__label{
+  max-width: 400px  !important;
+}
+.button__timer{
+  min-width: 60%;
 }
 @include breakpointUp("sm") {
   .Preparations {
     padding-bottom: 10%;
     margin: auto;
     width: auto;
-    min-width: 200px;
-     margin-right: 20px;
-     border-left: solid  black 1px;
+
   }
 }
+
 </style>

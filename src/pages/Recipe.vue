@@ -1,56 +1,62 @@
 <template>
   <div class="Recipe">
-    <Timer v-if="showTimer" :item="item" class="Recipe__timer" @close='setShow' />
+    <Timer
+      v-if="showTimer"
+      :item="item"
+      class="Recipe__timer"
+      @close="setShow"
+    />
     <div>
       <h2 class="Recipe__title">{{ recipe.title }}</h2>
     </div>
     <div class="Recipe__container">
       <div class="Recipe__flex-container">
         <div class="b1">
-        <button
-          class="button button--ingredients"
-          @click="showIngredients = !showIngredients"
-        >
-          {{ !showIngredients ? "Pokaż składniki" : "Ukryj" }}
-        </button>
+          <button
+            class="button button--ingredients"
+            @click="showIngredients = !showIngredients"
+          >
+            {{ !showIngredients ? "Pokaż składniki" : "Ukryj" }}
+          </button>
         </div>
         <div class="Recipe__ingredients-box">
-        <Ingredients
-          v-show="showIngredients"
-          class="Recipe__ingredients"
-          :recipe="recipe"
-        />
+          <Ingredients
+            v-show="showIngredients"
+            class="Recipe__ingredients"
+            :recipe="recipe"
+          />
         </div>
         <div class="b2">
-        <button
-          class="button button--preparation"
-          @click="showPreparation = !showPreparation"
-        >
-          {{ !showPreparation ? "Pokaż Wykonanie" : "Ukryj" }}
-        </button>
+          <button
+            class="button button--preparation"
+            @click="showPreparation = !showPreparation"
+          >
+            {{ !showPreparation ? "Pokaż Wykonanie" : "Ukryj" }}
+          </button>
         </div>
         <div class="Recipe__preparation-box">
-        <Preparation
-          v-show="showPreparation"
-          class="Recipe__preparation"
-          :recipe="recipe"
-          @startTimer="startTimer"
-        />
+          <Preparation
+            v-show="showPreparation"
+            class="Recipe__preparation"
+            :recipe="recipe"
+            @startTimer="startTimer"
+          />
         </div>
       </div>
 
-    <img
-      class="Recipe__image"
-      :src="`./images/${recipe.imageSource}.jpg`"
-      :alt="`${recipe.title}`"
-    />
+      <img
+        class="Recipe__image"
+        :src="`../images/${recipe.imageSource}.jpg`"
+        :alt="`${recipe.title}`"
+      />
     </div>
   </div>
 </template>
 <script>
-import Ingredients from './Ingredients.vue';
-import Preparation from './Preparation.vue';
-import Timer from './Timer.vue';
+import Ingredients from '@/components/Ingredients.vue';
+import Preparation from '@/components/Preparation.vue';
+import Timer from '@/components/Timer.vue';
+import dbObject from '@/db.json';
 
 export default {
   components: {
@@ -58,18 +64,20 @@ export default {
     Preparation,
     Timer,
   },
-  props: {
-    recipe: {
-      type: Object,
-    },
-  },
+
   data() {
     return {
       showIngredients: false,
       showPreparation: false,
       showTimer: false,
       item: {},
+      recipes: dbObject.recipes,
     };
+  },
+  computed: {
+    recipe() {
+      return this.$store.getters.choiceRecipe(+this.$route.params.id);
+    },
   },
   methods: {
     startTimer(item) {
@@ -140,7 +148,7 @@ export default {
     order: 1;
   }
   .Recipe__ingredients {
-     border-right: solid  black 1px;
+    border-right: solid black 1px;
   }
   .Recipe__ingredients-box {
     order: 3;
@@ -148,11 +156,11 @@ export default {
   .b2 {
     order: 2;
   }
-  .button--ingredients{
-    margin-left: 55%!important;
+  .button--ingredients {
+    margin-left: 55% !important;
   }
-  .button--preparation{
-    margin-right: 55%!important;
+  .button--preparation {
+    margin-right: 55% !important;
   }
   .Recipe__preparation-box {
     order: 4;
@@ -160,7 +168,6 @@ export default {
   .Recipe__preparation {
     padding-left: 20px;
     max-width: 200px;
-
   }
   .Recipe__image {
     width: auto;
@@ -190,8 +197,8 @@ export default {
     align-self: flex-end;
   }
   .Recipe__ingredients {
-  margin-left: 30%;
-}
+    margin-left: 30%;
+  }
 
   @include breakpointUp("lg") {
     .Recipe__image {

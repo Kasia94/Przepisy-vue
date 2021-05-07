@@ -1,5 +1,6 @@
 <template>
 <div>
+  <Header />
   <ul class="List" v-for= "item in recipes" :key="item.id">
     <li class="List__item" @click="$emit('clicked', item.id)">
       {{ item.title}}
@@ -9,12 +10,16 @@
 </div>
 </template>
 <script>
+import Header from '@/components/Header.vue';
 
 export default {
   props: {
     recipes: {
       type: Array,
     },
+  },
+  components: {
+    Header,
   },
 };
 </script>
