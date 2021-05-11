@@ -14,28 +14,24 @@
   height: 200px;
   padding: 20px;
   margin: auto;
-}
-
-.Header__slogan {
+&__slogan {
   color: white;
   margin: 65px auto auto auto;
   text-align: center;
 }
-.Header__image {
+&__image {
   width: 140px;
   height: 150px;
   position: absolute;
   top: 25%;
   left: 60%;
 }
-@include breakpointUp("sm") {
-
 }
 @include breakpointUp("md") {
   .Header {
     width: 670px;
   }
-  .Header__image {
+  &__image {
  top:25%
   }
 }

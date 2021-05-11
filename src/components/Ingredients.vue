@@ -7,7 +7,7 @@
     >
       <label class="Ingredient__label">
         <input class="input" type="checkbox" v-model="item.isReady" />{{ item.name }}
-         <a class="Ingradient__quantity">{{ item.quantity }}</a>
+         <p class="Ingredient__quantity">{{ item.quantity }}</p>
       </label>
     </li>
   </ul>
@@ -32,18 +32,18 @@ export default {
   margin-right: 10px;
   margin: 3%;
   text-indent: -1.8em;
+&__label{
+  max-width: 80%;
 
 }
-.Ingredient__label{
-  max-width: 80%;
-}
-.Ingradient__quantity{
+&__quantity{
+  display: inline;
   margin-left: 5px;
+}
 }
 @include breakpointUp("sm") {
   .Ingredient {
     padding-bottom: 10px;
-
     min-width: 140px;
   }
 }

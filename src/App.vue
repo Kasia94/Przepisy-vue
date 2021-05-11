@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   -webkit-font-smoothing: antialiased;
@@ -47,15 +47,15 @@ export default {
   top: 25px;
   width: 10%;
   z-index: 1;
-}
-.Logo__image {
-  width: 100px;
-  height: 100px;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+  }
 }
 .Footer{
-   position: absolute;
-  left: 15px;
-  bottom: 15px;
+ margin-left: 15px;
+ margin-top: 15px;
   text-align: left;
 }
 </style>

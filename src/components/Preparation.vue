@@ -10,10 +10,10 @@
         <label class="Preparation__label">
           <input class="input" type="checkbox" v-model="item.isReady" readonly />
           {{ item.step }}
-          <a v-if="item.time" >
-            <button class="button button__timer" @click="$emit('startTimer', item)">
+          <template v-if="item.time" >
+            <button class="button button--timer" @click="$emit('startTimer', item)">
               Uruchom timer</button>
-          </a>
+          </template>
         </label>
       </li>
     </ul>
@@ -41,12 +41,12 @@ export default {
   display: inline;
   text-align: justify;
   max-width: 400px;
-}
-.Preparations__item {
+&__item {
   list-style: none;
   text-indent: -1.5em;
   margin-bottom: 10px;
     height: auto;
+}
 }
 .currencyItem {
   font-size: large;
@@ -55,7 +55,7 @@ export default {
 .Preparation__label{
   max-width: 400px  !important;
 }
-.button__timer{
+.button--timer{
   min-width: 60%;
 }
 @include breakpointUp("sm") {

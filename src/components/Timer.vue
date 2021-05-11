@@ -93,10 +93,12 @@ export default {
 .button--setting {
   margin: 20px !important;
 }
-.Timer__Form__label {
+.Timer__Form{
+&__label {
   margin-right: auto;
 }
-.Timer__Form__text {
+&__text {
   margin-left: 20px;
+}
 }
 </style>

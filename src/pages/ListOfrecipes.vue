@@ -29,25 +29,29 @@ export default {
 </script>
 <style lang='scss'>
 @import "@/assets/style/media.scss";
+a:-webkit-any-link {
+  color: white;
+}
 .List {
   display: block;
   background: rgb(0, 0, 99);
-  color: white;
+  color: white  !important;
   margin: auto;
   margin-top: 50px;
   margin-left: 5%;
   list-style: none;
-}
-.List__item {
+  &item {
   height: 30px;
   text-align: center;
   padding-right: 15%;
   padding-top: 5px;
   cursor: pointer;
+&-link {
+  color: white !important;
 }
-.List__item-link {
-  color: white;
 }
+}
+
 @include breakpoint("md") {
   .List {
     width: 400px;

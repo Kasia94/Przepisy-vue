@@ -46,17 +46,16 @@
 
       <img
         class="Recipe__image"
-        :src="`../images/${recipe.imageSource}.jpg`"
+        :src="`./images/${recipe.imageSource}.jpg`"
         :alt="`${recipe.title}`"
       />
     </div>
   </div>
 </template>
 <script>
-import Ingredients from '@/components/Ingredients.vue';
-import Preparation from '@/components/Preparation.vue';
-import Timer from '@/components/Timer.vue';
-import dbObject from '@/db.json';
+import Ingredients from './Ingredients.vue';
+import Preparation from './Preparation.vue';
+import Timer from './Timer.vue';
 
 export default {
   components: {
@@ -64,20 +63,18 @@ export default {
     Preparation,
     Timer,
   },
-
+  props: {
+    recipe: {
+      type: Object,
+    },
+  },
   data() {
     return {
       showIngredients: false,
       showPreparation: false,
       showTimer: false,
       item: {},
-      recipes: dbObject.recipes,
     };
-  },
-  computed: {
-    recipe() {
-      return this.$store.getters.choiceRecipe(+this.$route.params.id);
-    },
   },
   methods: {
     startTimer(item) {
